@@ -2,7 +2,7 @@ function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
+    let formText = document.getElementById('input').value
     Client.checkForName(formText)
 
     console.log("::: Form Submitted :::")
@@ -13,4 +13,12 @@ function handleSubmit(event) {
     })
 }
 
-export { handleSubmit }
+function handleClear(event) {
+    event.preventDefault()
+
+    // check what text was put into the form field
+    let formText = document.getElementById('input')
+    formText.value = '';
+}
+
+export { handleSubmit, handleClear }

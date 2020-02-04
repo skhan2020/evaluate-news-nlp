@@ -14,7 +14,7 @@ var textapi = new aylien({
   });
 
 textapi.sentiment({
-    'text': 'John is a very good football player!'
+    'text': 'https://review.udacity.com/#!/rubrics/2668/view'
     }, function(error, response) {
     if (error === null) {
         console.log(response);

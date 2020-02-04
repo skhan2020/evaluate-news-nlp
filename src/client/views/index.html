@@ -18,20 +18,33 @@
 
         <main>
             <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <form onsubmit="return Client.handleSubmit(event)">
+                    <p>Please select source type:</p>
+                    <label for="text"><input id="text" type="radio" name="text-url" value="text">Text</label>
+                    <label for="url"><input id="url" type="radio" name="text-url" value="url">URL</label>
+                    <input id="input" type="text" name="input" value="" onblur="onBlur()" placeholder="Enter text / URL here">
+                    <input type="submit" name="" value="Clear" onclick="return Client.handleClear(event)" onsubmit="return Client.handleClear(event)">
+                    <input type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 
             <section>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div id="results">
+                    <div id="text">Text</div>
+                    <div id="language">Language</div>
+                    <div id="categories">Categories</div>
+                </div>
+            </section>
+
+            <section>
+                <strong>Sentiments:</strong>
+                <canvas id="faceUI" width="300" height="300"></canvas>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>© 2020 Skhan Productions </p>
         </footer>
 
     </body>
