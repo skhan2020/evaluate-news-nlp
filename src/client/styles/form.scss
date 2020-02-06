@@ -2,11 +2,31 @@ form {
     border: 1px solid #545454;
     border-radius: 3px;
     padding: 40px;
-}
-
-input {
-    padding: 5px 20px;
     width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+    background-color: #98AFC7;
+    
+    #textInput {
+        width: 80%;
+        margin-right: 20px;
+    }
+    input {
+        padding: 5px 20px;
+        line-height: 16px;
+        margin: 10px 0;
+    }
+
+    label {
+        display: inline-block;
+        width: 100%;
+    }​
+
+    .clearButton {
+        font-size: 20px;
+    }
+
+    .customButton {
+        font-size: 20px;
+        text-align: center;
+        width: 150px;
+    }
 }

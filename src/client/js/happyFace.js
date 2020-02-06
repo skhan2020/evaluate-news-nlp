@@ -1,6 +1,12 @@
 // =========================================================
 // Functons
 // =========================================================
+
+export function clearFace(canvas) {
+    let ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 function drawFace(canvas, opts) {
     let ctx = canvas.getContext("2d");
     ctx.save();
@@ -12,6 +18,22 @@ function drawFace(canvas, opts) {
     ctx.fillStyle = opts.fill;
     ctx.fill();
     ctx.restore();
+}
+
+function drawNeutral(canvas, opts) {
+    var context = canvas.getContext('2d');
+    let x = opts.x - 50;
+    let y = opts.y + 30;
+    // Reset the current path
+    context.beginPath(); 
+    // Staring point (10,45)
+     context.moveTo(x, y);
+    // End point (180,47)
+    context.lineTo(x + 100, y);
+    // Make the line visible
+    context.strokeStyle = opts.lineColor;
+    context.lineWidth = opts.radius * 0.1;
+    context.stroke();
 }
 
 function drawSmile(canvas, opts, flipSmile = true) {
@@ -75,8 +97,26 @@ function drawEye(canvas, opts, centerX, centerY, radius) {
     ctx.restore();
 }
 
-export function drawHappyFace(canvas, opts, flipSmile) {
+export function drawHappyFace(canvas, opts) {
     opts = opts || {};
+
+    let ctx = canvas.getContext('2d');
+
+    //Draw Canvas Fill mode
+    ctx.fillStyle = opts.subjectivity === 'objective' ? '#2B547E' : '#A1C935';
+    ctx.globalAlpha = opts.confidence;
+    ctx.fillRect(0,0,canvas.width, canvas.height);
+
+    const happy = '#FFFF00';
+    const unhappy = '#FF0000';
+    const neutral = '#ADD8E6';
+
+    let faceColor = happy;
+    if (opts.polarity === 'neutral') {
+        faceColor = neutral;
+    } else if (opts.polarity === 'negative') {
+        faceColor = unhappy;
+    }
     
     let defaultRadius = 48;
     let options = {
@@ -85,11 +125,15 @@ export function drawHappyFace(canvas, opts, flipSmile) {
         radius: opts.radius || defaultRadius,
         startAngle: 0,
         endAngle: 2 * Math.PI,
-        fill: opts.fill || 'yellow',
+        fill: opts.fill || faceColor,
         lineColor: opts.lineColor || 'black'
     };
     
     drawFace(canvas, options);
     drawEyes(canvas, options);
-    drawSmile(canvas, options, flipSmile);
+    if (opts.polarity === 'neutral') {
+        drawNeutral(canvas, options);
+    } else {
+        drawSmile(canvas, options, opts.polarity !== 'positive');
+    }
 }

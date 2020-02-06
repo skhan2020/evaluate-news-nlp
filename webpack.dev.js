@@ -8,6 +8,9 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
+    node: {
+        fs: 'empty',
+    },
     output: {
         libraryTarget: 'var',
         library: 'Client'
@@ -27,7 +30,13 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            }
+            },
+            {
+                test: /\.(jpg|png)$/,
+                use: {
+                  loader: 'url-loader',
+                },
+              },
         ]
     },
     plugins: [

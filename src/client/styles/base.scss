@@ -1,12 +1,40 @@
 body {
     min-height: 100vh;
+    background-color: #F0F8FF;
 }
 
 main {
     flex: 2;
-}
-
-section {
-    max-width: 800px;
-    margin: 50px auto;
+    section {
+        max-width: 800px;
+        margin: 50px auto;
+    }
+    
+    #displayBox {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #results {
+        min-width: 400px;
+    }
+    
+    #text,
+    #language,
+    #categories,
+    #polarity,
+    #subjectivity {
+        line-height: 30px;
+    }
+    .resultHeader {
+        line-height: 50px;
+    }
+    .big {
+        font-size: 20px;
+    }
+    #whiteBox {
+        background-color: #ffffff;
+        width: 300px;
+        height: 300px;
+    }
 }

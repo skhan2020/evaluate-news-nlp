@@ -6,15 +6,15 @@ This project evaluates various attributes of an article or blog post, and also s
 
 User can enter a text or an url and find out its classification and its assessed sentiments.
 
-Polarity of the article is depicted with a happy, unhappy or a neutral face. The color ratio shows its polarity confidence level.
+Polarity of the article is depicted with a happy, unhappy or a neutral face.
 
-- Yellow is happy
+- Yellow is Happy
 - Red is Unhappy
-- Blue is Neutral
+- Light Blue is Neutral
 
-Subjectivity of the article is depicted with the background color. The color ratio shows its Subjectivity confidence level.
+Subjectivity of the article is depicted with the background color. 
 
-- Black is Subjecttive
+- Blue is Subjecttive
 - Green is Objecttive
 
 The application also shows information about the article like:
