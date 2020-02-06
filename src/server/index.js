@@ -56,7 +56,3 @@ app.listen(8050, function () {
     console.log('Example app listening on port 8050!')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
-

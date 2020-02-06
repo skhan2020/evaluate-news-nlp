@@ -6,7 +6,7 @@ This project evaluates various attributes of an article or blog post, and also s
 
 User can enter a text or an url and find out its classification and its assessed sentiments.
 
-Polarity of the article is depicted with a happy, unhappy or a neutral face.
+Polarity of the article is depicted with a happy, unhappy or a neutral face image. The transparency of the image depicts the confidence level of the assessment.
 
 - Yellow is Happy
 - Red is Unhappy
@@ -30,4 +30,5 @@ The application also shows information about the article like:
 
 ## How to use the application
 
-Users will need to put in a text or a URL that needs to be assessed. URL will be validated for correct format. 
+Users will need to put in a text or a URL that needs to be assessed. 
+* URL will be validated for correct format if 'This is a URL' checkbox is selected. 

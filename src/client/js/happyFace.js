@@ -2,6 +2,10 @@
 // Functons
 // =========================================================
 
+export const HAPPY = '#FFFF00';
+export const UNHAPPY = '#FF0000';
+export const NEUTRAL = '#ADD8E6';
+
 export function clearFace(canvas) {
     let ctx = canvas.getContext("2d");
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -97,6 +101,16 @@ function drawEye(canvas, opts, centerX, centerY, radius) {
     ctx.restore();
 }
 
+export function getFaceColor(polarity) {
+    let faceColor = HAPPY;
+    if (polarity === 'neutral') {
+        faceColor = NEUTRAL;
+    } else if (polarity === 'negative') {
+        faceColor = UNHAPPY;
+    }
+    return faceColor;
+}
+
 export function drawHappyFace(canvas, opts) {
     opts = opts || {};
 
@@ -107,17 +121,6 @@ export function drawHappyFace(canvas, opts) {
     ctx.globalAlpha = opts.confidence;
     ctx.fillRect(0,0,canvas.width, canvas.height);
 
-    const happy = '#FFFF00';
-    const unhappy = '#FF0000';
-    const neutral = '#ADD8E6';
-
-    let faceColor = happy;
-    if (opts.polarity === 'neutral') {
-        faceColor = neutral;
-    } else if (opts.polarity === 'negative') {
-        faceColor = unhappy;
-    }
-    
     let defaultRadius = 48;
     let options = {
         x: opts.x || (defaultRadius / 0.9),
@@ -125,7 +128,7 @@ export function drawHappyFace(canvas, opts) {
         radius: opts.radius || defaultRadius,
         startAngle: 0,
         endAngle: 2 * Math.PI,
-        fill: opts.fill || faceColor,
+        fill: opts.fill || getFaceColor(opts.polarity),
         lineColor: opts.lineColor || 'black'
     };
     

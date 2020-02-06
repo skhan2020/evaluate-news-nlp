@@ -1,12 +1,9 @@
 import { drawHappyFace, clearFace } from './happyFace'
+import regeneratorRuntime from 'regenerator-runtime'
 
 function urlValid(text) {
-    let isUrl = document.getElementById('url').checked
-    if (isUrl) {
-        let valid = /^(ftp|http|https):\/\/[^ "]+$/.test(text);
-        return valid;
-    }
-    return true;
+    let valid = /^(ftp|http|https):\/\/[^ "]+$/.test(text);
+    return valid;
 }
 
 function handleSubmit(event) {
@@ -14,10 +11,11 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('textInput').value
+    let isUrl = document.getElementById('url').checked
     if (!formText) {
         alert('* Please enter a text or a url')
         return;
-    } else if (!urlValid(formText)) {
+    } else if (isUrl && !urlValid(formText)) {
         alert('* Please enter a correct URL')
         return;
     }
@@ -73,4 +71,4 @@ function handleClear(event) {
     clearFace(canvas);
 }
 
-export { handleSubmit, handleClear }
+export { handleSubmit, handleClear, urlValid }
