@@ -1,5 +1,5 @@
 import { handleSubmit, handleClear } from './js/formHandler'
-import homeIcon from '../client/assets/421953.jpg';
+import homeIcon from '../client/assets/smallIcon.png';
 
 var homeImg = document.getElementById('logo');
 homeImg.src = homeIcon;

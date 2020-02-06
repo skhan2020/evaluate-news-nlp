@@ -14,32 +14,31 @@
         </header>
 
         <main>
-            <section>
-                <form onsubmit="return Client.handleSubmit(event)">
-                    <input id="textInput" type="text" name="input" value="" placeholder="Enter text / URL here">
-                    <input class="clearButton" type="submit" name="" value="Clear" onclick="return Client.handleClear(event)" onsubmit="return Client.handleClear(event)">
-                    <label for="url"><input id="url" type="checkbox">  This is a URL</label>
-                    <input class="customButton" type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-                </form>
-            <section>
+            <form onsubmit="return Client.handleSubmit(event)">
+                <input id="textInput" type="text" name="input" value="" placeholder="Enter text / URL here">
+                <input class="clearButton" type="submit" name="" value="Clear" onclick="return Client.handleClear(event)" onsubmit="return Client.handleClear(event)">
+                <label for="url"><input id="url" type="checkbox">  This is a URL</label>
+                <input class="customButton" type="submit" name="" value="Submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+            </form>
 
-            <section>
+            <div id="resultSection">
                 <strong class="big resultHeader">Form Results</strong>
                 <div id="displayBox">
                     <div id="results">
-                        <strong class="resultHeader">Classifications</strong>
-                        <div id="text">Text:</div>
-                        <div id="language">Language:</div>
-                        <div id="categories">Categories:</div>
+                        <strong class="resultLabel">Classifications</strong>
+                        <div id="text"><span style="font-weight:bold">Text/URL:</span></div>
+                        <div id="language"><span style="font-weight:bold">Language:</span></div>
+                        <strong id="categories"><span style="font-weight:bold">Categories:</span></strong>
+                        <div id="categoryList"></div>
                     </div>
                     <div id="results">
-                        <strong class="resultHeader">Sentiments</strong>
-                        <div id="polarity">Polarity: </div>
-                        <div id="subjectivity">Subjectivity: </div>
+                        <strong class="resultLabel">Sentiments</strong>
+                        <div id="polarity"><span style="font-weight:bold">Polarity: </span></div>
+                        <div id="subjectivity"><span style="font-weight:bold">Subjectivity: </span></div>
                         <div id="whiteBox"><canvas id="faceUI" width="300" height="300"></canvas></div>
                     </div>
                 </div>
-            </section>
+            </div>
         </main>
 
         <footer>
