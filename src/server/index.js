@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+    res.sendFile('dist/index.html', { root: '.' })
 })
 
 app.get('/sentiments', appGetSentiments);

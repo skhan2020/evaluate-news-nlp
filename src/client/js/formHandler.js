@@ -27,8 +27,8 @@ function handleSubmit(event) {
 /* Function to GET Project Data */
 
 const updateUI = async (formText) => {
-    const sentiments = await fetch(`/sentiments?text=${formText}`);
-    const classify = await fetch(`/classify?text=${formText}`);
+    const sentiments = await fetch(`http://localhost:8050/sentiments?text=${formText}`);
+    const classify = await fetch(`http://localhost:8050/classify?text=${formText}`);
     try {
         const classifyData = await classify.json();
         const sentimentsData = await sentiments.json();
@@ -46,7 +46,6 @@ const updateUI = async (formText) => {
                 categoryList.appendChild(newElement);
             });
         }
-        debugger;
         let canvas = document.getElementById("faceUI");
         drawHappyFace(canvas, {
             lineColor: '#6F0047',
