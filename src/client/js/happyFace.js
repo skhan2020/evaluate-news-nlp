@@ -25,7 +25,7 @@ function drawFace(canvas, opts) {
 }
 
 function drawNeutral(canvas, opts) {
-    var context = canvas.getContext('2d');
+    let context = canvas.getContext('2d');
     let x = opts.x - 50;
     let y = opts.y + 30;
     // Reset the current path

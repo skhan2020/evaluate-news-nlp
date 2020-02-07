@@ -41,7 +41,7 @@ const updateUI = async (formText) => {
         
         if (classifyData.categories.length) {
             classifyData.categories.forEach(element => {
-                var newElement = document.createElement('div');
+                let newElement = document.createElement('div');
                 newElement.innerHTML = `- ${element.label}`;
                 categoryList.appendChild(newElement);
             });
